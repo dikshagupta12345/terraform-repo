@@ -43,3 +43,7 @@ variable "tags" {
   default     = []
 }
 
+variable "instance_count" {
+  description = "number of the compute instance"
+  type        = number
+}
