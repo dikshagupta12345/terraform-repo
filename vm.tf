@@ -11,7 +11,7 @@
     }
 
     network_interface {
-      network = "default"
+      network = "myvpc"
     }
 
     service_account {
