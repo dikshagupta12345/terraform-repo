@@ -1,6 +1,6 @@
 resource "google_compute_network" "myvpc" {
   project                 = var.project_id
-  name                    = "myvpc"
+  name                    = var.network
   auto_create_subnetworks = false
   mtu                     = 1460
 }

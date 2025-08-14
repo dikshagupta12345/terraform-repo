@@ -11,7 +11,8 @@
     }
 
     network_interface {
-      network = "myvpc"
+      network = google_compute_network.myvpc.name
+      subnetwork=google_compute_subnetwork.subnet1.name
     }
 
     service_account {

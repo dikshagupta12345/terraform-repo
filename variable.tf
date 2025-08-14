@@ -36,6 +36,12 @@ variable "network" {
   default     = "default"
 }
 
+variable "subnetwork" {
+  description = "subnetwork name"
+  type        = string
+  default     = "default"
+}
+
 
 variable "tags" {
   description = "Tags for the instance"
