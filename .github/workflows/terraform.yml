@@ -24,6 +24,20 @@ jobs:
       with:
         credentials_json: ${{ secrets.GCP_CREDENTIALS }}
 
+    # ✅ Generate GitHub App Token for accessing private repos
+    - name: Generate GitHub App Token
+      id: generate_token
+      uses: actions/create-github-app-token@v1
+      with:
+        app-id: ${{ secrets.APP_ID }}
+        private-key: ${{ secrets.APP_PRIVATE_KEY }}
+        owner: romilsingal23
+
+    # ✅ Configure git credentials so Terraform can fetch private modules
+    - name: Configure Git to use GitHub App Token
+      run: |
+        git config --global url."https://x-access-token:${{ steps.generate_token.outputs.token }}@github.com/".insteadOf "https://github.com/"
+
     - name: Terraform Init
       run: terraform init
 
