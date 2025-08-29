@@ -45,8 +45,10 @@ jobs:
 
     - name: Test Git Access with Token
       run: |
-        git ls-remote https://x-access-token:${{ steps.generate_token.outputs.token }}@github.com/dikshagupta12345/main-module.git
-    
+        git ls-remote https://x-access-token:${TOKEN}@github.com/dikshagupta12345/main-module.git
+      env:
+        TOKEN: ${{ steps.generate_token.outputs.token }}
+
     - name: Terraform Init
       run: terraform init
 
