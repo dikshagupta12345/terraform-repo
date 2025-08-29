@@ -31,7 +31,6 @@ jobs:
       with:
         app-id: ${{ secrets.APP_ID }}
         private-key: ${{ secrets.APP_PRIVATE_KEY }}
-        owner: romilsingal23
 
     # ✅ Configure git credentials so Terraform can fetch private modules
     - name: Configure Git to use GitHub App Token
