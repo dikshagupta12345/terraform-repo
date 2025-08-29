@@ -37,6 +37,10 @@ jobs:
       run: |
         git config --global url."https://x-access-token:${{ steps.generate_token.outputs.token }}@github.com/".insteadOf "https://github.com/"
 
+    - name: Debug Token Output
+      run: |
+        echo "Token length: ${#steps.generate_token.outputs.token}"
+
     - name: Test Git Access with Token
       run: |
         git ls-remote https://x-access-token:${{ steps.generate_token.outputs.token }}@github.com/dikshagupta12345/main-module.git
