@@ -37,6 +37,10 @@ jobs:
       run: |
         git config --global url."https://x-access-token:${{ steps.generate_token.outputs.token }}@github.com/".insteadOf "https://github.com/"
 
+    - name: Test Git Access
+      run: |
+        git ls-remote https://github.com/dikshagupta12345/main-module.git
+
     - name: Terraform Init
       run: terraform init
 
