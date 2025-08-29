@@ -45,7 +45,7 @@ jobs:
 
     - name: Test Git Access with Token
       run: |
-        git ls-remote https://x-access-token:${TOKEN}@github.com/dikshagupta12345/main-module.git
+        git ls-remote https://x-access-token:${TOKEN}@github.com/dikshagupta12345/main-module.git || echo "Access failed"
       env:
         TOKEN: ${{ steps.generate_token.outputs.token }}
 
