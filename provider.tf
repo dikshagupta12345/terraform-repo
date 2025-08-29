@@ -8,8 +8,8 @@ terraform {
     }
   }
   backend "gcs" {
-    bucket = "diksha_bucket"
-    prefix = "statefile_folder"
+    bucket = "boot-tf-state-bucket"
+    prefix = "terraform/state"
   }
 }
 
