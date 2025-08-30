@@ -1,14 +1,10 @@
-variable "project_id" {
-  description = "Project ID where resources will be created"
-  type        = string
-}
-
-variable "vpcs" {
-  description = "Map of VPCs and their subnets"
+variable "networks" {
   type = map(object({
-    subnets = map(object({
-      region = string
-      cidr   = string
+    project_id = string
+    region     = string
+    subnets = list(object({
+      name          = string
+      ip_cidr_range = string
     }))
   }))
 }
