@@ -35,21 +35,28 @@ jobs:
       with:
         app-id: ${{ secrets.APP_ID }}
         private-key: ${{ secrets.APP_PRIVATE_KEY }}
+        # Optional: specify repository if needed
+        repository: dikshagupta12345/main-module
 
     # Configure git credentials so Terraform can fetch private modules
     - name: Configure Git to use GitHub App Token
       run: |
         git config --global url."https://x-access-token:${{ steps.generate_token.outputs.token }}@github.com/".insteadOf "https://github.com/"
+        echo "Git configured to use token for GitHub URLs"
 
     - name: Debug Token Length
       run: |
         echo "Token length: ${#TOKEN}"
+        echo "First few chars: ${TOKEN:0:5}..." # For debugging without exposing full token
       env:
         TOKEN: ${{ steps.generate_token.outputs.token }}
     
     - name: Test Git Access with Token
       run: |
-        git ls-remote https://x-access-token:${TOKEN}@github.com/dikshagupta12345/main-module.git
+        # Test with the rewritten URL (should work due to git config)
+        echo "Testing access to repository..."
+        git ls-remote https://github.com/dikshagupta12345/main-module.git
+        echo "Success! Repository is accessible."
       env:
         TOKEN: ${{ steps.generate_token.outputs.token }}
 
