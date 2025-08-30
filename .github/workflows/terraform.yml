@@ -35,7 +35,6 @@ jobs:
       with:
         app-id: ${{ secrets.APP_ID }}
         private-key: ${{ secrets.APP_PRIVATE_KEY }}
-        # Optional: specify repository if needed
         owner: dikshagupta12345
 
     # Configure git credentials so Terraform can fetch private modules
@@ -43,38 +42,6 @@ jobs:
       run: |
         git config --global url."https://x-access-token:${{ steps.generate_token.outputs.token }}@github.com/".insteadOf "https://github.com/"
         echo "Git configured to use token for GitHub URLs"
-
-    - name: Debug Token Length
-      run: |
-        echo "Token length: ${#TOKEN}"
-        echo "First few chars: ${TOKEN:0:5}..." # For debugging without exposing full token
-      env:
-        TOKEN: ${{ steps.generate_token.outputs.token }}
-    
-    - name: Debug Repository Access
-      run: |
-        echo "=== Testing Repository Existence ==="
-        
-        # Test if repository exists (without token)
-        echo "1. Testing public access:"
-        curl -s -o /dev/null -w "%{http_code}" https://github.com/dikshagupta12345/main-module.git || echo "Curl failed"
-        echo ""
-        
-        # Test with token authentication
-        echo "2. Testing with token authentication:"
-        curl -s -H "Authorization: token $TOKEN" -o /dev/null -w "%{http_code}" https://api.github.com/repos/dikshagupta12345/main-module
-        echo ""
-        
-        echo "3. Testing git access with explicit token:"
-        git ls-remote "https://x-access-token:$TOKEN@github.com/dikshagupta12345/main-module.git" || echo "Direct token access failed"
-        
-        echo "4. Testing what repositories this token can access:"
-        curl -s -H "Authorization: token $TOKEN" https://api.github.com/user/repos | grep '"full_name"' | head -5 || echo "Cannot list repositories"
-        
-        echo "5. Testing current user:"
-        curl -s -H "Authorization: token $TOKEN" https://api.github.com/user | grep '"login"' || echo "Cannot get user info"
-      env:
-        TOKEN: ${{ steps.generate_token.outputs.token }}
 
     - name: Terraform Init
       run: terraform init
