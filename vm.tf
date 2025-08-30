@@ -7,7 +7,7 @@ module "vm_module" {
   zone           = "us-central1-a"
   project_id     = "innate-bucksaw-464410-e8"
   instance_count = 1
-  network = "myvpc"
-  subnetwork = "subnetwork1"
+  network = "testvpc"
+  subnetwork = "subnetwork2"
   sa_name = "test-sa"
 }
