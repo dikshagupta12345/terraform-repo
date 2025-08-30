@@ -12,3 +12,8 @@ terraform {
     prefix = "terraform/new-state"
   }
 }
+
+provider "google" {
+  project     = "innate-bucksaw-464410-e8"
+  region      = "us-central1"
+}
