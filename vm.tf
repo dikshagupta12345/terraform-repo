@@ -9,4 +9,5 @@ module "vm_module" {
   instance_count = 1
   network = "myvpc"
   subnetwork = "subnetwork1"
+  sa_name = "test-sa"
 }
