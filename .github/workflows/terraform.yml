@@ -51,15 +51,6 @@ jobs:
       env:
         TOKEN: ${{ steps.generate_token.outputs.token }}
     
-    - name: Test Git Access with Token
-      run: |
-        # Test with the rewritten URL (should work due to git config)
-        echo "Testing access to repository..."
-        git ls-remote https://github.com/dikshagupta12345/main-module.git
-        echo "Success! Repository is accessible."
-      env:
-        TOKEN: ${{ steps.generate_token.outputs.token }}
-
     - name: Debug Repository Access
       run: |
         echo "=== Testing Repository Existence ==="
