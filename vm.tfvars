@@ -6,7 +6,7 @@ instances = {
     zone          = "us-central1-a"
     image         = "debian-cloud/debian-11"
     network       = "vpc-1"
-    subnetwork    = "subnet-1a"
+    subnetwork    = "subnet-a1"
     external_ip   = true
   }
 
@@ -17,7 +17,7 @@ instances = {
     zone          = "us-east1"
     image         = "debian-cloud/debian-11"
     network       = "vpc-2"
-    subnetwork    = "subnet-1b"
+    subnetwork    = "subnet-b1"
     external_ip   = false
   }
 }
