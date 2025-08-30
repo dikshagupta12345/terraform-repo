@@ -10,9 +10,9 @@ variable "networks" {
 }
 
 variable "instances" {
-  description = "Map of VM configurations"
+  description = "Map of VM instances to create"
   type = map(object({
-    project_id   = string
+    project_id    = string
     instance_name = string
     machine_type  = string
     zone          = string
@@ -21,4 +21,9 @@ variable "instances" {
     subnetwork    = string
     external_ip   = bool
   }))
+}
+
+variable "sa_name" {
+  description = "Name of the service account to attach to VMs"
+  type        = string
 }
