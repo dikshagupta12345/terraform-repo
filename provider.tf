@@ -9,6 +9,6 @@ terraform {
   }
   backend "gcs" {
     bucket = "boot-tf-state-bucket"
-    prefix = "terraform/state"
+    prefix = "terraform/new-state"
   }
 }
