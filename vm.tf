@@ -1,22 +1,18 @@
-module "vm_module" {
-  source     = "git::https://github.com/dikshagupta12345/vm-instance-module.git?ref=main"
-  project_id = "innate-bucksaw-464410-e8"
-  sa_name    = "test-sa"
+# ----------------
+# VM Instances
+# ----------------
 
-  instances = {
-    "app-vm1" = {
-      machine_type = "e2-small"
-      zone         = "us-central1-a"
-      image        = "debian-cloud/debian-11"
-      network      = "vpc1"
-      subnetwork   = "subnet1"
-    }
-    "db-vm1" = {
-      machine_type = "n1-standard-2"
-      zone         = "us-central1-b"
-      image        = "debian-cloud/debian-11"
-      network      = "vpc1"
-      subnetwork   = "subnet2"
-    }
-   }
+module "vm_module" {
+  source     = "git::https://github.com/dikshagupta12345/vm-instance-module.git?ref=main"  
+  project_id = var.project_id
+
+  for_each     = var.instances
+
+  instance_name = each.key
+  machine_type  = each.value.machine_type
+  zone          = each.value.zone
+  image         = each.value.image
+  network       = each.value.network
+  subnetwork    = each.value.subnetwork
+  external_ip   = each.value.external_ip
 }
