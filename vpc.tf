@@ -1,12 +1,8 @@
-# ----------------
-# VPC + Subnets
-# ----------------
-module "vpc_module" {
-  source     = "git::https://github.com/dikshagupta12345/vpc-module.git?ref=main"
-  project_id = var.project_id
+module "vpc_networks" {
+  for_each = var.networks
+  source   = "git::https://github.com/your-org/network-module.git?ref=main"
 
-  for_each = var.vpcs
-
-  network_name = each.key
-  subnets      = each.value.subnets
+  project_id = each.value.project_id
+  region     = each.value.region
+  subnets    = each.value.subnets
 }
