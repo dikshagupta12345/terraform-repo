@@ -5,8 +5,8 @@ instances = {
     machine_type  = "e2-small"
     zone          = "us-central1-a"
     image         = "debian-cloud/debian-11"
-    network       = "vpc-1"
-    subnetwork    = "subnet-a1"
+    network       = "innate-bucksaw-464410-e8-vpc1-network"
+    subnetwork    = "vpc1-subnet-a1"
     external_ip   = true
   }
 }
