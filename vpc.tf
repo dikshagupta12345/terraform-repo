@@ -5,6 +5,6 @@ module "vpc_networks" {
   project_id = each.value.project_id
   region     = each.value.region
   subnets    = each.value.subnets
-  vpc_name   = each.key   # 👈 ensures uniqueness, even if region is same
+  vpc_name   = each.key   # ensures uniqueness, even if region is same
 }
 
