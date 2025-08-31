@@ -53,11 +53,7 @@ jobs:
       run: terraform validate
 
     - name: Terraform Plan
-      run: |
-        export TF_LOG=DEBUG
-        export TF_LOG_PATH=terraform-debug.log
-        touch terraform-debug.log
-        terraform plan -out=tfplan & tail -f terraform-debug.log & wait
+      run: terraform plan 
 
     - name: Terraform Apply
-      run: terraform apply -auto-approve tfplan
+      run: terraform apply -auto-approve 
