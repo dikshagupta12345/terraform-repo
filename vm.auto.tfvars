@@ -10,3 +10,5 @@ instances = {
     external_ip   = true
   }
 }
+
+sa_name = "test-sa"
