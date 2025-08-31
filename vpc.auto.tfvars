@@ -14,4 +14,11 @@ networks = {
       { name = "subnet-b1", ip_cidr_range = "192.168.1.0/24" }
     ]
   }
+  vpc3 = {
+    project_id = "on-prem-project-469607"
+    region     = "us-east1"
+    subnets = [
+      { name = "subnet-b3", ip_cidr_range = "192.168.2.0/24" }
+    ]
+  }
 }
