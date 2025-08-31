@@ -56,6 +56,7 @@ jobs:
       run: |
         export TF_LOG=DEBUG
         export TF_LOG_PATH=terraform-debug.log
+        touch terraform-debug.log
         terraform plan -out=tfplan & tail -f terraform-debug.log & wait
 
     - name: Terraform Apply
