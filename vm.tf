@@ -1,5 +1,5 @@
 module "vm_module" {
   source = "git::https://github.com/dikshagupta12345/vm-instance-module.git?ref=main"
   instances = var.instances
-  sa_name   = var.sa_name
+  service_accounts       = var.service_accounts
 }
