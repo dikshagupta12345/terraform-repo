@@ -18,7 +18,7 @@ instances = {
     image         = "debian-cloud/debian-11"
     network         = "projects/on-prem-project-469607/global/networks/on-prem-project-469607-vpc3-network"
     subnetwork      = "projects/on-prem-project-469607/regions/us-east1/subnetworks/vpc3-subnet-b3"
-    external_ip   = true
+    external_ip   = false
     service_account  = "app2-sa"
   }
 }
