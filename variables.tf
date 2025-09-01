@@ -20,6 +20,7 @@ variable "instances" {
     network       = string
     subnetwork    = string
     external_ip   = bool
+    service_account  = string
   }))
 }
 
