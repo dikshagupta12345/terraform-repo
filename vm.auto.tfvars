@@ -16,8 +16,8 @@ instances = {
     machine_type  = "e2-small"
     zone          = "us-east1-b"
     image         = "debian-cloud/debian-11"
-    network       = "on-prem-project-469607-vpc3-network"
-    subnetwork    = "vpc3-subnet-b3"
+    network         = "projects/on-prem-project-469607/global/networks/vpc3-network"
+    subnetwork      = "projects/on-prem-project-469607/regions/us-east1/subnetworks/vpc3-subnet-b3"
     external_ip   = true
     service_account  = "app2-sa"
   }
