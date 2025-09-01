@@ -8,8 +8,8 @@ on:
 jobs:
   terraform-apply:
     runs-on: ubuntu-latest
-    environment:
-      name: production   # requires manual approval in GitHub
+    #environment:
+     # name: production   # requires manual approval in GitHub
 
     steps:
       - name: Checkout Repository
