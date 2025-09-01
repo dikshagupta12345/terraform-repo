@@ -24,7 +24,11 @@ variable "instances" {
   }))
 }
 
-variable "sa_name" {
-  description = "Name of the service account to attach to VMs"
-  type        = string
+variable "service_accounts" {
+  description = "Map of service accounts"
+  type = map(object({
+    project_id   = string
+    display_name = string
+  }))
+  default = {}
 }
