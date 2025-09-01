@@ -7,7 +7,7 @@ instances = {
     image         = "debian-cloud/debian-11"
     network       = "innate-bucksaw-464410-e8-vpc1-network"
     subnetwork    = "vpc1-subnet-a1"
-    external_ip   = false
+    external_ip   = true
     service_account  = "app1-sa"
   }
   app2 = {
