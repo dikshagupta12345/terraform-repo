@@ -8,6 +8,7 @@ instances = {
     network       = "innate-bucksaw-464410-e8-vpc1-network"
     subnetwork    = "vpc1-subnet-a1"
     external_ip   = true
+    service_account  = "app1-sa"
   }
   app2 = {
     project_id    = "on-prem-project-469607"
@@ -18,7 +19,17 @@ instances = {
     network       = "on-prem-project-469607-vpc3-network"
     subnetwork    = "vpc3-subnet-b3"
     external_ip   = true
+    service_account  = "app2-sa"
   }
 }
 
-sa_name = "test-sa"
+service_accounts = {
+  app1-sa = {
+    project_id   = "innate-bucksaw-464410-e8"
+    display_name = "App1 Service Account"
+  },
+  app2-sa = {
+    project_id   = "on-prem-project-469607"
+    display_name = "App2 Service Account"
+  }
+}
