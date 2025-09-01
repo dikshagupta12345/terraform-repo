@@ -23,7 +23,7 @@ instances = {
   }
 }
 
-service_accounts = {
+service_account = {
   app1-sa = {
     project_id   = "innate-bucksaw-464410-e8"
     display_name = "App1 Service Account"
