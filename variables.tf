@@ -24,7 +24,7 @@ variable "instances" {
   }))
 }
 
-variable "service_accounts" {
+variable "service_account" {
   description = "Map of service accounts"
   type = map(object({
     project_id   = string
