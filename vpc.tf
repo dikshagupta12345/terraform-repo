@@ -1,6 +1,6 @@
 module "vpc_networks" {
   for_each = var.networks
-  source   = "git::https://github.com/dikshagupta12345/vpc-module.git?ref=main"
+  source   = "git::https://github.com/dikshagupta12345/vpc-module.git?ref=v1.0.0"
 
   project_id = each.value.project_id
   region     = each.value.region
